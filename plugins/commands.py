@@ -10,23 +10,51 @@ async def start(c, m):
     owner = await c.get_users(int(Config.OWNER_ID))
     owner_username = owner.username if owner.username else 'riz4d'
 
-    # start text
-    text = f"""Hey! {m.from_user.mention(style='md')},
+    # Welcome text
+    text = f"""<b>🙋 ʜᴇʟʟᴏ {m.from_user.mention(style='md')},</b>  
+<b>🧑🏻‍💻 ɪ’ᴍ ʏᴏᴜʀ ᴘᴇʀsᴏηᴀʟ sᴛʏʟɪsʜ ᴛᴇxᴛ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ.</b>  
 
- ** I am Font Bot**
+<blockquote expandable>
+<b>- ✨ ᴛᴜʀη ʏᴏᴜʀ ᴘʟᴀɪη ᴛᴇxᴛ ɪɴᴛᴏ ᴄᴏᴏʟ sᴛʏʟɪsʜ ꜰᴏɴᴛs</b>  
+<b>- 💫 ɢᴇɴᴇʀᴀᴛᴇ ꜰᴀɴᴄʏ sʏᴍʙᴏʟs ᴧηᴅ ᴅᴇcᴏʀᴀᴛɪᴏηs</b>  
+<b>- 🎨 ᴍᴀᴋᴇ ʏᴏᴜʀ ᴍᴇssᴀɢᴇs ʟᴏᴏᴋ ᴜɴɪqᴜᴇ & ᴇʏᴇ-cᴀᴛᴄʜɪηɢ</b>
+</blockquote>  
+<blockquote expandable>
+<b>ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ:</b>  
+<b>1. ᴊᴜsᴛ ᴛʏᴘᴇ ᴀηʏ ᴛᴇxᴛ ʏᴏᴜ ᴡᴀηᴛ ᴛᴏ sᴛʏʟᴇ.</b>  
+<b>2. ᴄʜᴏᴏsᴇ ʏᴏᴜʀ ꜰᴀᴠᴏʀɪᴛᴇ sᴛʏʟᴇ ꜰʀᴏᴍ ᴛʜᴇ ʟɪsᴛ.</b>  
+<b>3. ᴄᴏᴘʏ & sᴇηᴅ ɪᴛ ᴀɴʏᴡʜᴇʀᴇ — ᴛᴇʟᴇɢʀᴀᴍ, ɪɴsᴛᴀɢʀᴀᴍ, ᴡʜᴀᴛsᴀᴘᴘ, ʏᴏᴜ ɴᴀᴍᴇ ɪᴛ!</b>  
 
-`I can help you to get fonts. Just send me some text.`
+<b>sᴘᴇᴄɪᴀʟ ꜰᴇᴀᴛᴜʀᴇs:</b>  
+<b>- ᴍᴜʟᴛɪᴘʟᴇ sᴛʏʟɪsʜ ꜰᴏɴᴛ ᴏᴘᴛɪᴏηs 🅐🅑🅒</b>  
+<b>- ꜰᴀɴᴄʏ ᴇᴍᴏᴊɪs ᴧηᴅ sʏᴍʙᴏʟs 🎀🎉</b>  
+<b>- 100% ꜰʀᴇᴇ ᴧηᴅ ᴇᴀsʏ ᴛᴏ ᴜsᴇ ✅</b>
+</blockquote>
+<blockquote>
+<b>💬 ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴀηʏ qᴜᴇsᴛɪᴏηs, ꜰᴇᴇʟ ᴄʀᴇᴇ ᴛᴏ ᴄᴏηᴛᴀᴄᴛ ᴛʜᴇ ʙᴏᴛ ᴏᴡɴᴇʀ.</b>
+</blockquote>
 """
 
     # Buttons
     buttons = [
+        [InlineKeyboardButton('⌯ ᴍʏ ᴍᴧsᴛєʀ ⌯', url=f"https://t.me/CarelessxOwner")],
         [
-            InlineKeyboardButton('Developer', url=f"https://telegram.me/riz4d")
+            InlineKeyboardButton('⌯ sᴜᴘᴘσʀᴛ ⌯', url='https://t.me/CarelessxWorld'),
+            InlineKeyboardButton('⌯ ᴜᴘᴅᴧᴛє ⌯', url='https://t.me/ll_CarelessxCoder_ll')
         ]
     ]
+
+    # Send photo as spoiler first
+    await m.reply_photo(
+        photo='https://files.catbox.moe/q712gx.jpg',
+        spoiler=True
+    )
+
+    # Send welcome text with buttons
     await m.reply_text(
         text=text,
-        reply_markup=InlineKeyboardMarkup(buttons)
+        reply_markup=InlineKeyboardMarkup(buttons),
+        parse_mode='html'
     )
 
 
